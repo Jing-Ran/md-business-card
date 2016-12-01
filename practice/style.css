@@ -1,0 +1,113 @@
+body {
+  background-color: #f17564;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.flip__label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  height: 200px;
+  width: 300px;
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+#flip-checkbox {
+  display: none;
+}
+
+.card {
+  height: 100%;
+  width: 100%;
+  -webkit-transition: transform 1s;
+  -moz-transition: transform 1s;
+  -o-transition: transform 1s;
+  transition: transform 1s;
+
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.card__front,
+.card__back {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  -webkit-transition: box-shadow 1s;
+  -moz-transition: box-shadow 1s;
+  -o-transition: box-shadow 1s;
+  transition: box-shadow 1s;
+}
+
+.card__front {
+  background-color: white;
+}
+
+.card__back {
+  background-color: black;
+  color: white;
+  -webkit-transform: rotateX(-180deg);
+  -moz-transform: rotateX(-180deg);
+  -ms-transform: rotateX(-180deg);
+  -o-transform: rotateX(-180deg);
+  transform: rotateX(-180deg);
+}
+
+.flip__label:hover .card {
+  -webkit-transform: rotateX(20deg);
+  -moz-transform: rotateX(20deg);
+  -ms-transform: rotateX(20deg);
+  -o-transform: rotateX(20deg);
+  transform: rotateX(20deg);
+}
+
+.flip__label:hover .card__front {
+  -webkit-box-shadow: 0 10px 20px 0 rgba(0,0,0,0.3);
+  -moz-box-shadow: 0 10px 20px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.3);
+}
+
+.flip__label:hover .card__back {
+  -webkit-box-shadow: 0 -10px 20px 0 rgba(255,255,255,0.3);
+  -moz-box-shadow: 0 -10px 20px 0 rgba(255,255,255,0.3);
+  box-shadow: 0 -10px 20px 0 rgba(255,255,255,0.3);
+}
+
+.flip__label #flip-checkbox:checked + .card {
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+
+.flip__label:hover #flip-checkbox:checked + .card {
+  -webkit-transform: rotateX(160deg);
+  -moz-transform: rotateX(160deg);
+  -ms-transform: rotateX(160deg);
+  -o-transform: rotateX(160deg);
+  transform: rotateX(160deg);
+}
